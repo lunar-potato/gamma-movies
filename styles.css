@@ -1,3 +1,8 @@
+.root {
+    --darkbg: #1e1e2e;
+    --lightbg: #eff1f5;
+}
+
 body {
-    background-color: #1e1e2e;
+    background-color: var(--darkbg); 
 }
