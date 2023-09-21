@@ -44,3 +44,9 @@ body {
 .menu-list-item.active{
     font-weight: bold;
 }
+
+/* Footer CSS */
+.group-name {
+    font-size: small;
+    padding-top: 0;
+}
