@@ -22,61 +22,75 @@
   <title>Gamma Movies</title>
 </head>
 
-<body>
-  <!-- Navbar -->
-    <div class="navbar">
-      <div class="navbar-container">
+<body class="container dark">
+  <div class="menu">
+    <!--Navbar-->
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+      <!--Or Use style="background-color:red etc."-->
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand mb-0 h1">
 
-        <div class="logo-container">
-          <h3 class="logo">gamma logo</h3>
-        </div>
-        <div class="home-container">
-          <h3 class="home">Home</h3>
-        </div>
-        <div class="movies-container">
-          <h3 class="movies">Movies</h3>
-        </div>
-        <div class="popular-container">
-          <h3 class="popular">Popular</h3>
-        </div>
-        <div class="Profile-container">
-          <h3 class="profile">Profile</h3>
-        </div>
-        <div class="search-container">
-          <h3 class="search">Search</h3>
-        </div>
+          <img class="d-inline-block align-top" src="./images/logo.png"
+            width="30" height="30" />
+          Gamma Movies
+        </a>
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="menu-container"></div>
-        <ul class="menu-list">
-          <li class="menu-list-item active">Menu</li>
-          <li class="menu-list-item">Movies</li>
-          <li class="menu-list-item">Series</li>
-          <li class="menu-list-item">Categories</li>
-          <li class="menu-list-item">Popular</li>
-          <li class="menu-list-item">Trends</li>
-        </ul>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+          <ul class="navbar-nav text-center">
+            <!--ms-auto mb-2 mb-lg-0-->
+            <li class="nav-item active dropdown">
+              <a href="#" class="nav-link dropdown-toggle" id="navbaDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Movies</a>
+              <ul class="dropdown-menu" aria-labelledby="navbaDropdown">
+                <li><a href="#" class="dropdown-item">Animation</a></li>
+                <li><a href="#" class="dropdown-item">Action</a></li>
+                <li><a href="#" class="dropdown-item">Horror</a></li>
+                <li><a href="#" class="dropdown-item">Comedy</a></li>
+                <li><a href="#" class="dropdown-item">Drama</a></li>
+                <li><a href="#" class="dropdown-item">Thriller</a></li>
+                <li><a href="#" class="dropdown-item">Science Fiction</a></li>
+                <li><a href="#" class="dropdown-item">Romance</a></li>
+                <li><a href="#" class="dropdown-item">Other</a></li>
+              </ul>
+            </li>
+            <li class="nav-item active"><a href="#" class="nav-link">Trends</a></li>
+            <li class="nav-item active"><a href="#" class="nav-link">Popular</a></li>
+            <li class="nav-item active dropdown"><a href="#" class="nav-link dropdown-toggle" id="navbaDropdown"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+              <ul class="dropdown-menu" aria-labelledby="navbaDropdown">
+                <li><a href="#" class="dropdown-item">Profile #1</a></li>
+                <li><a href="#" class="dropdown-item">Profile #2</a></li>
+                <li><a href="#" class="dropdown-item">Profile #3</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input type="text" class="form-control me-2">
+            <button type="submit" class="btn
+                btn-primary">Search</button>
+          </form>
+        </div>
+        <div class="toggle">
+          <label class="switch">
 
-        <div>
-
-          <div class="profile-container">
-            <img class="profile-picture" src="placeholder" alt="">
-            <div class="profile-text-container">
-              <span class="profile-text">Profile</span>
-              <i class="fa-solid fa-caret-down"></i>
-            </div>
-            <div class="toggle">
-              <h1>Toggle button</h1>
-            </div>
-          </div>
-
+            <input type="checkbox" id="theme-switcher">
+            <span class="slider round"></span>
+          </label>
         </div>
       </div>
-    </div>
-    </div>
+
+    </nav>
+  </div>
 
 
-   <!-- Featured Movies container -->
-   <section class="container-fluid">
+
+  <!-- Featured Movies container -->
+  <section class="container-fluid">
     <h3 class="col-md-6">Featured Movies</h3>
     <div class="row d-flex">
       <div class="col ms-lg-1 mt-2">
@@ -164,106 +178,106 @@
     </div>
   </section>
 
-    <!-- Recommended Movies container -->
-<section class="container-fluid">
-  <h3 class="col-md-6">Recommended Movies</h3>
-  <div class="row d-flex">
-    <div class="col ms-lg-1 mt-2">
-          <!-- Movie 1 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 1 Title</h5>
-              </div>
+  <!-- Recommended Movies container -->
+  <section class="container-fluid">
+    <h3 class="col-md-6">Recommended Movies</h3>
+    <div class="row d-flex">
+      <div class="col ms-lg-1 mt-2">
+        <!-- Movie 1 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 1 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 2 Card -->
-          <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 2 Title</h5>
-              </div>
+        <!-- Movie 2 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 2 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 3 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 3 Title</h5>
-              </div>
+        <!-- Movie 3 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 3 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 4 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 4 Title</h5>
-              </div>
+        <!-- Movie 4 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 4 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 5 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 5 Title</h5>
-              </div>
+        <!-- Movie 5 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 5 Title</h5>
           </div>
+        </div>
       </div>
-  </div>
- 
+    </div>
+
     <!-- Additional row of movie cards -->
     <div class="row d-flex">
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 6 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 6 Title</h5>
-              </div>
+        <!-- Movie 6 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 6 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 7 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 7 Title</h5>
-              </div>
+        <!-- Movie 7 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 7 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 8 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 8 Title</h5>
-              </div>
+        <!-- Movie 8 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 8 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 9 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 9 Title</h5>
-              </div>
+        <!-- Movie 9 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 9 Title</h5>
           </div>
+        </div>
       </div>
       <div class="col ms-lg-1 mt-2">
-          <!-- Movie 10 Card -->
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 10 Title</h5>
-              </div>
+        <!-- Movie 10 Card -->
+        <div class="card">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie 10 Title</h5>
           </div>
+        </div>
       </div>
-  </div>
-</section>
+    </div>
+  </section>
 
   <!-- Footer -->
   <div class="container">
@@ -289,6 +303,13 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/dayjs.min.js"></script>
+
+<!--Option: Bootstrap Bundle with Popper-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"></script>
+
+
   <script src="./script.js"></script>
 </body>
 
