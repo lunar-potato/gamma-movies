@@ -18,278 +18,353 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&family=Sen:wght@400;700;800&display=swap"
     rel="stylesheet">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="./styles.css" />
   <title>Gamma Movies</title>
 </head>
 
 <body>
   <!-- Navbar -->
-    <div class="navbar">
-      <div class="navbar-container">
+  <div class="navbar">
+    <div class="navbar-container">
 
-        <div class="logo-container">
-          <h3 class="logo">gamma logo</h3>
-        </div>
-        <div class="home-container">
-          <h3 class="home">Home</h3>
-        </div>
-        <div class="movies-container">
-          <h3 class="movies">Movies</h3>
-        </div>
-        <div class="popular-container">
-          <h3 class="popular">Popular</h3>
-        </div>
-        <div class="Profile-container">
-          <h3 class="profile">Profile</h3>
-        </div>
-        <div class="search-container">
-          <h3 class="search">Search</h3>
+      <div class="logo-container">
+        <h3 class="logo">gamma logo</h3>
+      </div>
+      <div class="home-container">
+        <h3 class="home">Home</h3>
+      </div>
+      <div class="movies-container">
+        <h3 class="movies">Movies</h3>
+      </div>
+      <div class="popular-container">
+        <h3 class="popular">Popular</h3>
+      </div>
+      <div class="Profile-container">
+        <h3 class="profile">Profile</h3>
+      </div>
+      <div class="search-container">
+        <h3 class="search">Search</h3>
+      </div>
+
+      <div class="menu-container"></div>
+      <ul class="menu-list">
+        <li class="menu-list-item active">Menu</li>
+        <li class="menu-list-item">Movies</li>
+        <li class="menu-list-item">Series</li>
+        <li class="menu-list-item">Categories</li>
+        <li class="menu-list-item">Popular</li>
+        <li class="menu-list-item">Trends</li>
+      </ul>
+
+      <div>
+
+        <div class="profile-container">
+          <img class="profile-picture" src="placeholder" alt="">
+          <div class="profile-text-container">
+            <span class="profile-text">Profile</span>
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+          <div class="toggle">
+            <h1>Toggle button</h1>
+          </div>
         </div>
 
-        <div class="menu-container"></div>
-        <ul class="menu-list">
-          <li class="menu-list-item active">Menu</li>
-          <li class="menu-list-item">Movies</li>
-          <li class="menu-list-item">Series</li>
-          <li class="menu-list-item">Categories</li>
-          <li class="menu-list-item">Popular</li>
-          <li class="menu-list-item">Trends</li>
-        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
 
-        <div>
+  <!--Carousel-->
+  <div class="container">
+    <br>
+    <div id="theCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicadores -->
+      <ol class="carousel-indicators">
+        <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#theCarousel" data-slide-to="1"></li>
+        <li data-target="#theCarousel" data-slide-to="2"></li>
+        <li data-target="#theCarousel" data-slide-to="3"></li>
 
-          <div class="profile-container">
-            <img class="profile-picture" src="placeholder" alt="">
-            <div class="profile-text-container">
-              <span class="profile-text">Profile</span>
-              <i class="fa-solid fa-caret-down"></i>
+      </ol>
+
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="./images/batman.jpg" alt="Batman">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Batman</h3>
+            <p>1989</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="./images/topgun.jpg" alt="Top Gun">
+          <div class="carousel-caption d-none d-md-block">
+            <h3> Top Gun</h3>
+            <p>1986</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="./images/jaws.jpg" alt="Jaws">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Jaws</h3>
+            <p>1975</p>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/marypoppins.jpg" alt="Mary Poppins">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Mary Poppins</h3>
+            <p>1964</p>
+          </div>
+        </div>
+
+
+        <a class="left carousel-control" href="#theCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">previous</span>
+        </a>
+        <a class="right carousel-control" href="#theCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">next</span>
+        </a>
+      </div>
+    </div>
+    <style>
+      /* Change the With and Heigh  */
+      .carousel-inner>.item>img,
+      .carousel-inner>.item>a>img {
+        width: 20%;
+        height: 300px;
+        margin: auto;
+      }
+
+      /* Change the margins */
+      .carousel-control {
+        width: 75%;
+      }
+    </style>
+
+    <!-- Featured Movies container -->
+    <section class="container-fluid">
+      <h3 class="col-md-6">Featured Movies</h3>
+      <div class="row d-flex">
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
             </div>
-            <div class="toggle">
-              <h1>Toggle button</h1>
+          </div>
+        </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
             </div>
           </div>
-
         </div>
-      </div>
-    </div>
-    </div>
-
-
-   <!-- Featured Movies container -->
-   <section class="container-fluid">
-    <h3 class="col-md-6">Featured Movies</h3>
-    <div class="row d-flex">
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
+      <div class="row d-flex">
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie Title</h5>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row d-flex">
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-text">Movie Title</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Recommended Movies container -->
-<section class="container-fluid">
-  <h3 class="col-md-6">Recommended Movies</h3>
-  <div class="row d-flex">
-    <div class="col ms-lg-1 mt-2">
+    <section class="container-fluid">
+      <h3 class="col-md-6">Recommended Movies</h3>
+      <div class="row d-flex">
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 1 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 1 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 1 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 2 Card -->
           <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 2 Title</h5>
-              </div>
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-text">Movie 2 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 3 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 3 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 3 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 4 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 4 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 4 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 5 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 5 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 5 Title</h5>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
- 
-    <!-- Additional row of movie cards -->
-    <div class="row d-flex">
-      <div class="col ms-lg-1 mt-2">
+
+      <!-- Additional row of movie cards -->
+      <div class="row d-flex">
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 6 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 6 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 6 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 7 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 7 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 7 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 8 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 8 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 8 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 9 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 9 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 9 Title</h5>
+            </div>
           </div>
-      </div>
-      <div class="col ms-lg-1 mt-2">
+        </div>
+        <div class="col ms-lg-1 mt-2">
           <!-- Movie 10 Card -->
           <div class="card">
             <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                  <h5 class="card-text">Movie 10 Title</h5>
-              </div>
+            <div class="card-body">
+              <h5 class="card-text">Movie 10 Title</h5>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
-</section>
+    </section>
 
-  <!-- Footer -->
-  <div class="container">
-    <footer class="py-3 my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Movies</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Bookmarks</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">About</a>
-        </li>
-      </ul>
-      <p class="text-center text-muted">&copy; Group 2</p>
-      <p class="text-center text-muted group-name">Gwyneth Bautista, Angel Castaneda, Anderson Gumede, Memouna Irain</p>
-    </footer>
-  </div>
+    <!-- Footer -->
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Bookmarks</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+        <p class="text-center text-muted">&copy; Group 2</p>
+        <p class="text-center text-muted group-name">Gwyneth Bautista, Angel Castaneda, Anderson Gumede, Memouna Irain
+        </p>
+      </footer>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/dayjs.min.js"></script>
-  <script src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/dayjs.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
