@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Excluding files containing API keys
+api-keys.js
+config/api_keys.js
+.env
