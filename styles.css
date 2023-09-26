@@ -45,6 +45,13 @@ body {
     font-weight: bold;
 }
 
+/* Carousel CSS */
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 10%;
+      margin: auto;
+  }
+
 /* Footer CSS */
 .group-name {
     font-size: small;
