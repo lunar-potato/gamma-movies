@@ -39,6 +39,31 @@ $(document).ready(function() {
     }); 
   }
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const imdbID = urlParams.get('imdbID');
+
+  if (imdbID) {
+    fetchMovieDetails(imdbID);
+  } else {
+    console.error('IMDB ID not found in the query parameter');
+  }
+
+  function fetchMovieDetails(imdbID) {
+    const apiKey = 'c6ff91ff';
+    const apiUrl = 'https://www.omdbapi.com/?i=' + imdbID + '&apikey=' + apiKey;
+      $.ajax({
+        url: apiUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          displayMovieDetails(data);
+        },
+        error: function(error) {
+          console.error('Error fetching movie details:', error);
+        }
+      });
+  }
+
   function displayMovies(movies) {
     const featuredMoviesContainer = $('.featured-movies');
     let row = $('<div class="row"></div>');
@@ -56,15 +81,53 @@ $(document).ready(function() {
         .attr('alt', movie.Title);
 
       const titleHeading = $('<h5 class="card-text movie-title"></h5>').text(movie.Title);
-    
+      
+      movieCard.data('imdbID', movie.imdbID);
+
       movieCard.click(function () {
-        showMovieDetails(movie.imdbID);
+        const imdbID = $(this).data('imdbID');
+        fetchMovieDetails(imdbID);
+    
+        displayMovieDetails(movie.imdbID);
       });
 
       movieCard.append(posterImg, titleHeading);
       featuredMoviesContainer.append(movieCard);
     });
+
+    if (row.children().length > 0) {
+      featuredMoviesContainer.append(row);
+    }
   }
+
+  function displayMovieDetails(movie) {
+    $('#movie-title').text(movie.Title);
+    $('#additional-info').text(`Released: ${movie.Released}`);
+    $('#movie-description').text(movie.Plot);
+
+    $('#movie-poster').attr('src', movie.Poster);
+
+    const castList = $('#movie-cast');
+    castList.empty();
+    movie.Actors.split(',').forEach(function (actor) {
+      castList.append(`<li class="list-group-item">${actor.trim()}</li>`);
+    });
+
+    $('#imdb-rating').text(`IMDb: ${movie.imdbRating}`);
+    $('#rotten-tomatoes-rating').text(`Rotten Tomatoes: ${movie.Ratings[1].Value}`);
+
+    $('.container').addClass('show-movie-details');
+
+    $('#close-movie-details').click(function () {
+      $('.container').removeClass('show-movie-details');
+    });
+  }
+
+  $('.featured-movies').on('click', '.movie-card', function() {
+    const imdbID = $(this).data('imdbID');
+    // Redirecting to movie.html
+    window.location.href = `movie.html?imdbID=${imdbID}`;
+  });
 
   // // Event listener for Watchlist
 
