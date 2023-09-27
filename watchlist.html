@@ -39,98 +39,51 @@
 
   <body class="container dark">
     <!--Navbar-->
-    <header>
-      <div class="menu">
-        <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
-          <!--Or Use style="background-color:red etc."-->
-          <div class="container-fluid">
-            <a href="#" class="navbar-brand mb-0 h1">
-              <img
-                class="d-inline-block align-top"
-                src="./images/logo.png"
-                width="30"
-                height="30"
-              />
-              Gamma Movies
-            </a>
-            <button
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              class="navbar-toggler"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+  <header>
+    <div class="menu">
+      <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
+        <!--Or Use style="background-color:red etc."-->
+        <div class="container-fluid">
+          <a href="./index.html" class="navbar-brand mb-0 h1">
+            <img class="d-inline-block align-top" src="./images/logo.png" width="30" height="30" />
+            Gamma Movies
+          </a>
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
-              <ul class="navbar-nav text-center">
-                <!--ms-auto mb-2 mb-lg-0-->
-                <li class="nav-item active dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    id="navbaDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Movies</a
-                  >
-                  <ul class="dropdown-menu" aria-labelledby="navbaDropdown">
-                    <li><a href="#" class="dropdown-item">Animation</a></li>
-                    <li><a href="#" class="dropdown-item">Action</a></li>
-                    <li><a href="#" class="dropdown-item">Horror</a></li>
-                    <li><a href="#" class="dropdown-item">Comedy</a></li>
-                    <li><a href="#" class="dropdown-item">Drama</a></li>
-                    <li><a href="#" class="dropdown-item">Thriller</a></li>
-                    <li>
-                      <a href="#" class="dropdown-item">Science Fiction</a>
-                    </li>
-                    <li><a href="#" class="dropdown-item">Romance</a></li>
-                    <li><a href="#" class="dropdown-item">Other</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item active">
-                  <a href="#" class="nav-link">Trends</a>
-                </li>
-                <li class="nav-item active">
-                  <a href="#" class="nav-link">Popular</a>
-                </li>
-                <li class="nav-item active dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    id="navbaDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    >Profile</a
-                  >
-                  <ul class="dropdown-menu" aria-labelledby="navbaDropdown">
-                    <li><a href="#" class="dropdown-item">Profile #1</a></li>
-                    <li><a href="#" class="dropdown-item">Profile #2</a></li>
-                    <li><a href="#" class="dropdown-item">Profile #3</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="d-flex">
-                <input type="text" class="form-control me-2" />
-                <button type="submit" class="btn btn-primary">Search</button>
-              </form>
-            </div>
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" id="theme-switcher" />
-                <span class="slider round"></span>
-              </label>
-            </div>
+          <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+            <ul class="navbar-nav text-center">
+
+              <li class="nav-item active">
+                <a href="./filter.html" class="nav-link">Movies</a>
+              </li>
+              <li class="nav-item active">
+                <a href="./filter.html" class="nav-link">Year</a>
+              </li>
+              <li class="nav-item active">
+                <a href="./index.html" class="nav-link">Popular</a>
+              </li>
+              <li class="nav-item active">
+                <a href="./watchlist.html" class="nav-link">Watchlist</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input type="text" class="form-control me-2" placeholder="Type your search" />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
           </div>
-        </nav>
-      </div>
-    </header>
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" id="theme-switcher" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 
     <section class="container-fluid">
       <h3 class="col-md-6 my-2">Watchlist</h3>
@@ -342,7 +295,7 @@
             <a href="./watchlist.html" class="nav-link px-2">Bookmarks</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-2">About</a>
+            <a href="./about.html" class="nav-link px-2">About</a>
           </li>
         </ul>
         <p class="text-center">&copy; Group 2</p>
