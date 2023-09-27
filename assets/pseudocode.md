@@ -52,54 +52,52 @@
 
 ## Filters
 
-// Define global variables
-let apiFetchedMovies = []; // Store the fetched movie data
+    Define global variables
+        let apiFetchedMovies = []; // Store the fetched movie data
 
-// Define filter functions
-function filterByGenre(movies, genre) {
-  // Filter movies by genre and return the filtered list
-}
+    Define filter functions
+        function filterByGenre(movies, genre) 
+            Filter movies by genre and return the filtered list
 
-function filterByYear(movies, year) {
-  // Filter movies by year and return the filtered list
-}
+    function filterByYear(movies, year) 
+        Filter movies by year and return the filtered list
 
-function filterByAgeRating(movies, ageRating) {
-  // Filter movies by age rating and return the filtered list
-}
 
-function renderMovies(movies) {
-  // Clear existing movie cards on the webpage
-  Clear movieContainer element
+    function filterByAgeRating(movies, ageRating) 
+        Filter movies by age rating and return the filtered list
+
+    function renderMovies(movies) 
+        Clear existing movie cards on the webpage
+        Clear movieContainer element
   
-  // Iterate through movies and create new movie cards
-  For each movie in movies:
-    Create a new movie card element
-    Set the movie card's properties like title, image, etc.
-    Append the movie card to the movieContainer element
-}
+    go over through movies and create new movie cards
+        For each movie in movies:
+            Create a new movie card element
+            Set the movie card's properties like title, image, etc.
+            Append the movie card to the movieContainer element
 
-// Event listener for genre filter dropdown
-On 'change' event of genre filter dropdown:
-  Get the selected genre
-  Call filterByGenre(apiFetchedMovies, selectedGenre)
-  Call renderMovies(filteredMovies)
 
-// Event listener for year filter dropdown
-On 'change' event of year filter dropdown:
-  Get the selected year
-  Call filterByYear(apiFetchedMovies, selectedYear)
-  Call renderMovies(filteredMovies)
+    Event listener for genre filter dropdown
+        On 'change' event of genre filter dropdown:
+            Get the selected genre
+            Call filterByGenre(apiFetchedMovies, selectedGenre)
+            Call renderMovies(filteredMovies)
 
-// Event listener for age rating filter dropdown
-On 'change' event of age rating filter dropdown:
-  Get the selected age rating
-  Call filterByAgeRating(apiFetchedMovies, selectedAgeRating)
-  Call renderMovies(filteredMovies)
+    Event listener for year filter dropdown
+        On 'change' event of year filter dropdown:
+            Get the selected year
+            Call filterByYear(apiFetchedMovies, selectedYear)
+            Call renderMovies(filteredMovies)
 
-// Fetch data from the OMDB API
-Fetch data from OMDB API using your API key
-Store the fetched movie data in the apiFetchedMovies variable
+    Event listener for age rating filter dropdown
+        On 'change' event of age rating filter dropdown:
+            Get the selected age rating
+            Call filterByAgeRating(apiFetchedMovies, selectedAgeRating)
+            Call renderMovies(filteredMovies)
 
-// Initial display of all movies
-Call renderMovies(apiFetchedMovies)
+    Fetch data from the OMDB API
+        Fetch data from OMDB API using your API key
+        Store the fetched movie data in the apiFetchedMovies variable
+
+    Initial display of all movies
+    Call renderMovies(apiFetchedMovies)
