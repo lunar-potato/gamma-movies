@@ -131,13 +131,18 @@
       </div>
     </header>
 
-    <!-- Filter Options -->
-    <div class="row d-flex">
-      <div class="col">
-    <section class="bd-toc mt-3 mb-5 my-lg-0 mb-lg-5 px-sm-1">
-      <strong class="d-none d-md-block h6 my-2 ms-3">Filter by category</strong>
-      <hr class="d-none d-md-block my-2 ms-3" />
-      <div id="MovieCategory">
+<!-- page title -->
+<h3 class="col-md-6 my-2" id="filter-heading">Advanced Movie Search</h3>
+<!-- Filter Options and Results -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Filter options column -->
+    <div class="col-md-3">
+      <!-- Filter options -->
+        <div class="bd-toc mt-3 mb-5 my-lg-0 mb-lg-5 px-sm-1">
+        <strong class="d-none d-md-block h6 my-2 ms-3">Filter by Genre</strong>
+        <hr class="d-none d-md-block my-2 ms-3" />
+        <div id="MovieCategory">
         <ul class="filter-list">
           <li><a href="#">Animation</a></li>
           <li><a href="#">Action</a></li>
@@ -152,6 +157,14 @@
           <li><a href="#">Historical</a></li>
           <li><a href="#">Documentary</a></li>
           <li><a href="#">Mystery</a></li>
+      </ul>
+      </div>
+    </div>
+      
+      <div class="bd-toc mt-3 mb-5 my-lg-0 mb-lg-5 px-sm-1">
+        <strong class="d-none d-md-block h6 my-2 ms-3">Filter by Year</strong>
+        <hr class="d-none d-md-block my-2 ms-3" />
+        <div id="MovieYear">
             <li class="category-item active dropdown">
               <a
                 href="#"
@@ -175,48 +188,151 @@
               </ul>
             </li>   
           </li>
+          </div>
+        </div>
+        
+      <div class="bd-toc mt-3 mb-5 my-lg-0 mb-lg-5 px-sm-1">
+        <strong class="d-none d-md-block h6 my-2 ms-3">Filter by Age Rating</strong>
+        <hr class="d-none d-md-block my-2 ms-3" />
+        <div id="MovieAge-rating">
+          <li class="category-item active dropdown">
+            <a
+              href="#"
+              class="categoryLink dropdown-toggle"
+              id="yearDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Age Rating</a>
+
+            <ul class="dropdown-menu li-year" aria-labelledby="navbaDropdown">
+              <li class="dropdown-item"><a href="#">U</a></li>
+              <li class="dropdown-item"><a href="#">PG</a></li>
+              <li class="dropdown-item"><a href="#">12A</a></li>
+              <li class="dropdown-item"><a href="#">12</a></li>
+              <li class="dropdown-item"><a href="#">15</a></li>
+              <li class="dropdown-item"><a href="#">18</a></li>
+              <li class="dropdown-item"><a href="#">R18</a></li>
+            </ul>
+          </li>   
+        </li>
         </ul>
       </div>
-    </section>
-
-    <!-- Movie placeholders -->
-    <main class="container-fluid">
-      <div class="row d-flex">
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-text">Movie Title</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-text">Movie Title</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-text">Movie Title</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-text">Movie Title</h5>
-            </div>
-          </div>
-        </div>
-    </main>
+    </div>
   </div>
-</div>
+
+  <!-- Results Column -->
+  <div class="col-md-9">
+    <!-- Movie placeholders/ results code-->
+
+    <div class="row">
+      <!-- Row 1 -->
+      <div class="col">
+        <div class="card">
+          <img src="image1.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image2.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image1.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image2.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <!-- Row 2 -->
+      <div class="col">
+        <div class="card">
+          <img src="image3.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image4.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image1.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image2.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <!-- Row 3 -->
+      <div class="col">
+        <div class="card">
+          <img src="image5.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image6.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image1.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="image2.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-text">Movie Title</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Footer -->
 <div class="container-fluid">
