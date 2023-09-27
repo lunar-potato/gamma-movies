@@ -23,7 +23,54 @@
 </head>
 
 
-<body>
+<body class="container dark">
+
+  <!--Navbar-->
+  <header>
+    <div class="menu">
+      <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
+        <!--Or Use style="background-color:red etc."-->
+        <div class="container-fluid">
+          <a href="./index.html" class="navbar-brand mb-0 h1">
+            <img class="d-inline-block align-top" src="./images/logo.png" width="30" height="30" />
+            Gamma Movies
+          </a>
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+            <ul class="navbar-nav text-center">
+
+              <li class="nav-item active">
+                <a href="./filter.html" class="nav-link">Movies</a>
+              </li>
+              <li class="nav-item active">
+                <a href="./filter.html" class="nav-link">Year</a>
+              </li>
+              <li class="nav-item active">
+                <a href="./index.html" class="nav-link">Popular</a>
+              </li>
+              <li class="nav-item active">
+                <a href="./watchlist.html" class="nav-link">Watchlist</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input type="text" class="form-control me-2" placeholder="Type your search" />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+          </div>
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" id="theme-switcher" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 
   <section class="about-us">
     <div class="about">
@@ -36,13 +83,14 @@
 
         <h2>About Us</h2>
         <h5>Gamma Movies</h5>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est
-          laborum."</p>
+        <p>"Gamma movies is a dynamic movie search web app that allow users to navigate easily and filter their
+          personal choices. It is a user friendly app which can be easily navigated by most age groups including
+          the <span>elderly</span>. If you prefer a light or dark theme screen, our navbar offers just that with a
+          theme-switcher. <br>Another key-feature is a watchlist button that allow users to save their choices to their 
+          local storage and be able to see what movies they have saved. Our advanced movie filter feature allows users 
+          to filter movies according to their prefered genre, age rating, year release date, cast and crew information, 
+          ratings and more.."</p>
+
         <div class="link">
           <a href="https://github.com/lunar-potato/gamma-movies" class="github">Our GitHub</a>
         </div>
@@ -51,6 +99,30 @@
     </div>
 
   </section>
+
+  <!-- Footer -->
+  <div class="container-fluid">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link px-2">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="./filter.html" class="nav-link px-2">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a href="./watchlist.html" class="nav-link px-2">Bookmarks</a>
+        </li>
+        <li class="nav-item">
+          <a href="./about.html" class="nav-link px-2">About</a>
+        </li>
+      </ul>
+      <p class="text-center">&copy; Group 2</p>
+      <p class="text-center group-name">
+        Gwyneth Bautista, Angel Castaneda, Anderson Gumede, Memouna Irain
+      </p>
+    </footer>
+  </div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
