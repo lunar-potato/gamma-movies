@@ -208,3 +208,9 @@ input:checked + .slider:before {
   height: 100px; 
   background-color: yellow; 
 }
+
+.poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
