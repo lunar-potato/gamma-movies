@@ -39,16 +39,22 @@ $(document).ready(function() {
     }); 
   }
 
+  console.log('Curernt URL:', window.location.href);
+
   const urlParams = new URLSearchParams(window.location.search);
   const imdbID = urlParams.get('imdbID');
+  console.log('Retrieved IMDb ID:', imdbID);
 
-  if (imdbID) {
-    fetchMovieDetails(imdbID);
-  } else {
-    console.error('IMDB ID not found in the query parameter');
+  if(window.location.pathname.endsWith('/movie.html')) {
+    if (imdbID) {
+      console.log('IMDB ID found:', imdbID);
+      fetchMovieDetails(imdbID, displayMovieDetails);
+    } else {
+      console.error('IMDB ID not found in the query parameter');
+    }
   }
 
-  function fetchMovieDetails(imdbID) {
+  function fetchMovieDetails(imdbID, callback) {
     const apiKey = 'c6ff91ff';
     const apiUrl = 'https://www.omdbapi.com/?i=' + imdbID + '&apikey=' + apiKey;
       $.ajax({
@@ -56,7 +62,7 @@ $(document).ready(function() {
         method: 'GET',
         dataType: 'json',
         success: function (data) {
-          displayMovieDetails(data);
+          callback(data);
         },
         error: function(error) {
           console.error('Error fetching movie details:', error);
@@ -74,6 +80,8 @@ $(document).ready(function() {
         row = $('<div class="row"></div>');
       }
       
+      const movieLink = $('<a>').attr('href', `movie.html?imdbID=${movie.imdbID}`);
+
       const movieCard = $('<div class="col ms-lg-1 mt-2 movie-card"></div>');
 
       const posterImg = $('<img class="card-img-top">')
@@ -86,12 +94,12 @@ $(document).ready(function() {
 
       movieCard.click(function () {
         const imdbID = $(this).data('imdbID');
-        fetchMovieDetails(imdbID);
-    
-        displayMovieDetails(movie.imdbID);
+        fetchMovieDetails(imdbID, displayMovieDetails);
+        //displayMovieDetails(movie.imdbID);
       });
 
       movieCard.append(posterImg, titleHeading);
+      movieLink.append(movieCard);
       featuredMoviesContainer.append(movieCard);
     });
 
@@ -121,6 +129,9 @@ $(document).ready(function() {
     $('#close-movie-details').click(function () {
       $('.container').removeClass('show-movie-details');
     });
+
+    $('.add-to-watchlist').data('movie-title', movie.Title);
+    $('.add-to-watchlist').data('imdb-id', movie.imdbID);
   }
 
   $('.featured-movies').on('click', '.movie-card', function() {
@@ -137,13 +148,13 @@ $(document).ready(function() {
     const watchlistItem = { title: movieTitle, imdbID: imdbID};
     addToWatchlist(watchlistItem);
 
-    window.location.href = "watchlist.html";
+    window.location.href = "watchlist.html?imdbID=" + imdbID;
   })
 
   // Function to add movie to the watchlist and local storage
   function addToWatchlist(movie) {
     const watchlist = getWatchlist();
-    watchlist.push(movie);
+    watchlist.push(movie); 
     setWatchlist(watchlist);
   }
 
@@ -158,7 +169,6 @@ $(document).ready(function() {
   function setWatchlist(watchlist) {
     setInLocalStorage("watchlist", watchlist);
   }
-  // Function to create a list item with movie details
 
   // Function to get data from local storage
   function getFromLocalStorage(key) {
@@ -169,6 +179,32 @@ $(document).ready(function() {
   // Function to set data in local storage
   function setInLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function displayWatchlist() {
+    const watchlist = getWatchlist();
+    const watchlistContainer = $('#watchlist-container');
+
+    watchlistContainer.empty();
+    
+    if (watchlist.length === 0) {
+      watchlistContainer.append('<p>Your watchlist is empty.</p>');
+    } else {
+      $.each(watchlist, function (index, movie) {
+        fetchMovieDetails(movie.imdbID, function (movieDetails) {
+          let movieCard = $('<div></div>').addClass('col ms-lg-1 mt-2 movie-card');
+          let posterImg = $('<img class="card-img-top">').attr('src', movieDetails.Poster).attr('alt', movie.title);
+          const titleHeading = $('<h5 class="card-text movie-title"></h5>').text(movie.title);
+
+          movieCard.append(posterImg, titleHeading);
+          watchlistContainer.append(movieCard);
+        });
+      });
+    }
+  }
+
+  if(window.location.pathname.endsWith('/watchlist.html')) {
+    displayWatchlist();
   }
 
   fetchMovieData();
