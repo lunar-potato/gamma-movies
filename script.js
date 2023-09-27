@@ -129,22 +129,47 @@ $(document).ready(function() {
     window.location.href = `movie.html?imdbID=${imdbID}`;
   });
 
-  // // Event listener for Watchlist
+  // Event listener for Watchlist
+  $(".add-to-watchlist").click(function() {
+    const movieTitle = $(this).data("movie-title");
+    const imdbID = $(this).data("imdb-id");
 
-  // // Function to add movie to the watchlist and local storage
+    const watchlistItem = { title: movieTitle, imdbID: imdbID};
+    addToWatchlist(watchlistItem);
 
-  // // Function to create a list item with movie details
+    window.location.href = "watchlist.html";
+  })
 
-  // // Function to get data from local storage
-  // function getFromLocalStorage(key) {
-  //   let data = localStorage.getItem(key);
-  //   return JSON.parse(data);
-  // }
+  // Function to add movie to the watchlist and local storage
+  function addToWatchlist(movie) {
+    const watchlist = getWatchlist();
+    watchlist.push(movie);
+    setWatchlist(watchlist);
+  }
 
-  // // Function to set data in local storage
-  // function setInLocalStorage(key, value) {
-  //   localStorage.setItem(key, JSON.stringify(value));
-  // }
+  function getWatchlist() {
+    let watchlist = getFromLocalStorage("watchlist");
+    if (!watchlist) {
+      watchlist = [];
+    }
+    return watchlist;
+  }
+
+  function setWatchlist(watchlist) {
+    setInLocalStorage("watchlist", watchlist);
+  }
+  // Function to create a list item with movie details
+
+  // Function to get data from local storage
+  function getFromLocalStorage(key) {
+    let data = localStorage.getItem(key);
+    return JSON.parse(data);
+  }
+
+  // Function to set data in local storage
+  function setInLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
 
   fetchMovieData();
 });

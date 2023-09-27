@@ -1,3 +1,7 @@
+body {
+  padding-top: 65px;
+}
+
 
 .about-us{
 width: 100%;
@@ -203,4 +207,10 @@ input:checked + .slider:before {
   margin-left: 50%; 
   height: 100px; 
   background-color: yellow; 
+}
+
+.poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
