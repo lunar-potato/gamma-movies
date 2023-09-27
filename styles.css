@@ -1,72 +1,7 @@
-
-.about-us{
-width: 100%;
-height: 100vh;
-padding: 90px 0;
-background: #ddd;
+body {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 65px;
 }
-
-.text{
-  width: 540px;
-}
-
-.text h2{
-  font-size: 90px;
-  font-weight: 600;
-  margin-bottom: 10px;  
-}
-
-
-.text h5{
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 20px;  
-}
-
-.text p{
-  font-size: 18px;
-  font-weight: 25;
-  margin-bottom: 1px;  
-}
-
-.about{
-  width: 1030px;
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.pic{
-  height: 350px;
-  width: 400px;
-}
-
-.link{
-  margin-top: 30px;
-
-}
-
-.github{
-  text-decoration: none;
-  font-size: 18px;
-  color: #fff;
-  background: #4070f4;
-  padding: 8px 25px;
-  border-radius: 6px;
-  border: none;
-  transition: 0.5s;
-}
-
-span{
-  color: #4070f4;
-}
-
-.github:hover{
-  background: 000;
-}
-
 
 header {
   width: 100%;
@@ -97,8 +32,8 @@ header {
 .switch {
   position: relative;
   display: inline-block;
-  width: 59px;
-  height: 33px;
+  width: 60px;
+  height: 34px;
 }
   
 /* Hide default HTML checkbox */
@@ -132,7 +67,7 @@ header {
   -webkit-transition: .4s;
   transition: .4s;
 }
-
+  
 input:checked + .slider {
   background-color: rgb(29, 128, 210);
 }
