@@ -125,3 +125,17 @@ input:checked + .slider:before {
   font-size: small;
   padding-top: 0;
 }
+
+.float-child-element { 
+  float: left; 
+  width: 50%; 
+} 
+.filters {  
+  margin-left: 50%; 
+  height: 100px; 
+} 
+.results { 
+  margin-left: 50%; 
+  height: 100px; 
+  background-color: yellow; 
+}
