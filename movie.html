@@ -56,7 +56,7 @@
               </li>
             </ul>
             <form class="d-flex" id="search-form">
-              <input type="text" class="form-control me-2" placeholder="Type your search" id="search-input"/>
+              <input type="text" class="form-control me-2" placeholder="Search a movie.." id="search-input" />
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
           </div>
@@ -70,6 +70,23 @@
       </nav>
     </div>
   </header>
+
+  <!-- Modal for displaying search results -->
+  <div class="modal fade" id="searchResultsModal" tabindex="-1" aria-labelledby="searchResultsModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchResultsModalLabel">Search Results</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Display search results here -->
+          <div id="search-results"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Movie container -->
   <div class="container">
