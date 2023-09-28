@@ -336,6 +336,18 @@ $.ajax({
   filterMovies();
 
   fetchMovieData();
+
+  // TMDB API FETCH REQUEST
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer d0bb7d4fbb291088cb72ab1b7147c5e5'
+    }
+  };
+  
+  fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_genres=%2C', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 });
-
-
