@@ -60,3 +60,11 @@ This project is licensed under a MIT License.
 ![Alt text](./images/Memouna.png)Memouna Irain
 
 ![Alt text](./images/Anderson.png)Anderson Gumede
+
+## Repository   
+
+https://github.com/lunar-potato/gamma-movies
+
+## Deployed    
+
+https://lunar-potato.github.io/gamma-movies
