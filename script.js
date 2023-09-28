@@ -278,3 +278,5 @@ $.ajax({
 
   fetchMovieData();
 });
+
+
