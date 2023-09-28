@@ -39,7 +39,7 @@ $(document).ready(function() {
     }); 
   }
 
-  console.log('Curernt URL:', window.location.href);
+  console.log('Current URL:', window.location.href);
 
   const urlParams = new URLSearchParams(window.location.search);
   const imdbID = urlParams.get('imdbID');
@@ -207,5 +207,76 @@ $(document).ready(function() {
     displayWatchlist();
   }
 
+  // js code for filters -- not working yet
+  // Added event listeners to filter options to trigger filtering
+
+
+  $('#MovieYear a').click(function () {
+
+    $(this).toggleClass('active');
+    console.log('Year filter clicked.'); 
+    // getting value 
+    const selectedYear = $('.li-year .dropdown-item a.active').text();
+    //clear the selected value
+    $('.li-year .dropdown-item a.active').removeClass('active');
+    // condition check on empty value
+    !selectedYear ? console.log("Year is empty.") : filterMovies(selectedYear);
+
+  });
+
+  // Function to filter and display movies based on selected criteria
+  function filterMovies(year) { 
+
+// Making API request
+const apiKey = 'c6ff91ff';
+let apiUrl = `https://www.omdbapi.com/?s=movie&type=movie&apikey=${apiKey}&`;
+
+  if (year && year !== 'All') {
+    apiUrl += `y=${year}&`;
+    }
+
+$.ajax({
+  url: apiUrl,
+  method: 'GET',
+  dataType: 'json',
+  success: function (data) {
+    displayFilteredMovies(data.Search);
+  },
+  error: function (error) {
+    console.error('Error fetching filtered data:', error);
+  },
+});
+   
+  }
+
+  // Function to display filtered movies in placeholders
+  function displayFilteredMovies(movies) {
+
+    console.log('Displaying filtered movies:', movies); 
+
+    // Clear existing movie placeholders
+   // $('.col-md-3 .card').empty();
+
+    // Loop through the filtered movies and populate placeholders
+    for (let i = 0; i < movies.length; i++) {
+      const movie = movies[i];
+      console.log(movie);
+      const card = $('.col-md-3 .card').eq(i); 
+      console.log(card);
+            // Set the movie title
+      card.find('.card-text').text(movie.Title);
+
+      // Set the movie poster
+      const img = card.find('.card-img-top');
+      img.attr('src', movie.Poster);
+      img.attr('alt', movie.Title);
+    }
+  }
+
+  // Initial filtering when the page loads
+  filterMovies();
+
   fetchMovieData();
 });
+
+
