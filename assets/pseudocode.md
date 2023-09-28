@@ -52,7 +52,7 @@
 
 ## Filters
 
-    Define global variables
+    Define variables
         let apiFetchedMovies = []; // Store the fetched movie data
 
     Define filter functions
@@ -70,7 +70,7 @@
         Clear existing movie cards on the webpage
         Clear movieContainer element
   
-    go over through movies and create new movie cards
+    go through movies and create new movie cards
         For each movie in movies:
             Create a new movie card element
             Set the movie card's properties like title, image, etc.
