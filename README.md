@@ -1,6 +1,8 @@
 # <b><i><span style="color:blue">Project: Gamma-movies APP </span></b></i>
 
-A movie category list that allows users to find movies and see their details and save the movies as watchlist or as watched and rating it themselves.
+A movie category list that allows users to find movies and see their details and save the movies as watchlist or as watched and rating it themselves. 
+
+** DISCLAIMER : When searching up films, there might be inappropriate content as the search is unfiltered **
 
 
 ![Alt text](./images/logo.png) ![Alt text](./images/app.png)
