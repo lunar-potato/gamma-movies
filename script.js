@@ -210,6 +210,7 @@ $(document).ready(function() {
   fetchMovieData();
 });
 
+//js code for filters -- not working yet
 // Add event listeners to filter options to trigger filtering
 $('#MovieGenre a').click(function () {
   $(this).toggleClass('active');
