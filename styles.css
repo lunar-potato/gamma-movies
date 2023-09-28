@@ -213,3 +213,12 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: center;
 }
+
+.modal-title {
+  color: black;
+}
+
+.modal-body {
+  text-decoration: none;
+  color: black;
+}
