@@ -90,7 +90,7 @@ $(document).ready(function () {
         `movie.html?imdbID=${movie.imdbID}`
       );
 
-      const movieCard = $('<div class="col ms-lg-1 mt-2 movie-card"></div>');
+      const movieCard = $('<div class="col ms-lg-1 mt-2 my-4 movie-card"></div>');
 
       const posterImg = $('<img class="card-img-top">')
         .attr("src", movie.Poster)
