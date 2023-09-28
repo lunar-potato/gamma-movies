@@ -41,8 +41,10 @@ $(document).ready(function() {
 
   console.log('Current URL:', window.location.href);
 
+  // Retrieving IMDb ID and search query from URL parameters
   const urlParams = new URLSearchParams(window.location.search);
   const imdbID = urlParams.get('imdbID');
+  const searchQuery = urlParams.get('search');
   console.log('Retrieved IMDb ID:', imdbID);
 
   if(window.location.pathname.endsWith('/movie.html')) {
@@ -54,6 +56,7 @@ $(document).ready(function() {
     }
   }
 
+  // Function which fetches movie details from OMDb API
   function fetchMovieDetails(imdbID, callback) {
     const apiKey = 'c6ff91ff';
     const apiUrl = 'https://www.omdbapi.com/?i=' + imdbID + '&apikey=' + apiKey;
@@ -70,6 +73,7 @@ $(document).ready(function() {
       });
   }
 
+  // Function which displays list of movies on featured movies container
   function displayMovies(movies) {
     const featuredMoviesContainer = $('.featured-movies');
     let row = $('<div class="row"></div>');
@@ -108,6 +112,7 @@ $(document).ready(function() {
     }
   }
 
+  // Function which displays movie details to movie.html
   function displayMovieDetails(movie) {
     $('#movie-title').text(movie.Title);
     $('#additional-info').text(`Released: ${movie.Released}`);
@@ -134,13 +139,14 @@ $(document).ready(function() {
     $('.add-to-watchlist').data('imdb-id', movie.imdbID);
   }
 
+  // Event listener for clicking on movie card
   $('.featured-movies').on('click', '.movie-card', function() {
     const imdbID = $(this).data('imdbID');
     // Redirecting to movie.html
     window.location.href = `movie.html?imdbID=${imdbID}`;
   });
 
-  // Event listener for Watchlist
+  // Event listener for Watchlist button
   $(".add-to-watchlist").click(function() {
     const movieTitle = $(this).data("movie-title");
     const imdbID = $(this).data("imdb-id");
@@ -158,6 +164,7 @@ $(document).ready(function() {
     setWatchlist(watchlist);
   }
 
+  // Function to get watchlist saved from local storage
   function getWatchlist() {
     let watchlist = getFromLocalStorage("watchlist");
     if (!watchlist) {
@@ -166,6 +173,7 @@ $(document).ready(function() {
     return watchlist;
   }
 
+  // Function to set the watchlist save to the local storage
   function setWatchlist(watchlist) {
     setInLocalStorage("watchlist", watchlist);
   }
@@ -181,6 +189,8 @@ $(document).ready(function() {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
+
+  // Function to display saved watchlist to the watchlist page
   function displayWatchlist() {
     const watchlist = getWatchlist();
     const watchlistContainer = $('#watchlist-container');
@@ -272,6 +282,55 @@ $.ajax({
       img.attr('alt', movie.Title);
     }
   }
+
+  // Function which handles movie search
+  function searchMovies(query) {
+    const apiKey = 'c6ff91ff';
+    const apiUrl = `https://www.omdbapi.com/?s=${encodeURIComponent(query)}&type=movie&apikey=${apiKey}`;
+
+    $.ajax({
+      url: apiUrl,
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        // Checking if movies are found
+        if (data.Response === 'True') {
+          displaySearchResults(data.Search);
+        } else {
+          // Displaying message indicating that no movies were found
+          console.log('No movies found.');
+        }
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+      },
+    });
+  }
+
+  function displaySearchResults(results) {
+    // Clearing previous search results
+    $('#search-form').empty();
+
+    // Looping through results and displaying
+    results.forEach(function (movie) {
+      const movieLink = $('<a>').attr('href', `movie.html?imdbID=${movie.imdbID}`);
+      const title = $('<h2>').text(movie.Title);
+      // Adding other movie details as needed
+      movieLink.append(title);
+      $('#search-form').append(movieLink);
+    });
+  }
+
+  // Adding event listener to the search form
+  $('#search-form').submit(function (e) {
+    e.preventDefault();
+    console.log('Search form submitted.');
+    const searchQuery = $('#search-input').val();
+    
+    if (searchQuery) {
+      searchMovies(searchQuery);
+    }
+  });
 
   // Initial filtering when the page loads
   filterMovies();
