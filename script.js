@@ -90,7 +90,9 @@ $(document).ready(function () {
         `movie.html?imdbID=${movie.imdbID}`
       );
 
-      const movieCard = $('<div class="col ms-lg-1 mt-2 my-4 movie-card"></div>');
+      const movieCard = $(
+        '<div class="col ms-lg-1 mt-2 my-4 movie-card"></div>'
+      );
 
       const posterImg = $('<img class="card-img-top">')
         .attr("src", movie.Poster)
@@ -233,60 +235,89 @@ $(document).ready(function () {
   // js code for filters -- not working yet
   // Added event listeners to filter options to trigger filtering
 
-  $("#MovieYear a").click(function () {
+  $(".li-year .dropdown-item a").click(function () {
     $(this).toggleClass("active");
     console.log("Year filter clicked.");
-    // getting value
-    const selectedYear = $(".li-year .dropdown-item a.active").text();
-    //clear the selected value
-    $(".li-year .dropdown-item a.active").removeClass("active");
-    // condition check on empty value
-    !selectedYear ? console.log("Year is empty.") : filterMovies(selectedYear);
+    checkAndFilter();
   });
 
+  $(".li-genre .dropdown-item a").click(function () {
+    $(this).toggleClass("active");
+    console.log("genre filter clicked.");
+    checkAndFilter();
+  });
+
+  function checkAndFilter() {
+    const selectedYear = $(".li-year .dropdown-item a.active").text();
+    const selectedGenre = $(".li-genre .dropdown-item a.active").data(
+      "genre-id"
+    );
+
+    if (!selectedGenre) {
+      console.log("no selected Genre");
+    } else if (!selectedYear) {
+      console.log("no selected Year");
+    } else {
+      filterMovies(selectedYear, selectedGenre);
+      $(".li-year .dropdown-item a.active").removeClass("active");
+      $(".li-genre .dropdown-item a.active").removeClass("active");
+    }
+  }
+
   // Function to filter and display movies based on selected criteria
-  function filterMovies(year) {
+  function filterMovies(year, genre) {
     // Making API request
-    const apiKey = "c6ff91ff";
-    let apiUrl = `https://www.omdbapi.com/?s=movie&type=movie&apikey=${apiKey}&`;
+    let apiUrl = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&`;
 
     if (year && year !== "All") {
-      apiUrl += `y=${year}&`;
+      apiUrl += `primary_release_year=${year}&`;
+    }
+    if (genre && genre !== "All") {
+      apiUrl += `with_genres=${genre}&`;
     }
 
-    $.ajax({
-      url: apiUrl,
+    const options = {
       method: "GET",
-      dataType: "json",
-      success: function (data) {
-        displayFilteredMovies(data.Search);
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmFkMzA3M2Y2NWFiZWJmMDIzYzgyZDlhZjJmODVmYSIsInN1YiI6IjY1MTZhNTE5OTNiZDY5MDBlMTJkMGI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CcdRQfD-O4bZLh37OG0nLNQPg9Hnx_deAt3Oj1U9-LI",
       },
-      error: function (error) {
-        console.error("Error fetching filtered data:", error);
-      },
-    });
+    };
+
+    fetch(apiUrl, options)
+      .then((response) => response.json())
+      .then((response) => displayFilteredMovies(response))
+      .catch((err) => console.error(err));
   }
 
   // Function to display filtered movies in placeholders
   function displayFilteredMovies(movies) {
+    const IMG_URL = "https://image.tmdb.org/t/p/w500";
     console.log("Displaying filtered movies:", movies);
-
-    // Clear existing movie placeholders
-    // $('.col-md-3 .card').empty();
-
+    const movieContainer = document.getElementById("movie-container");
+    movieContainer.innerHTML = "";
     // Loop through the filtered movies and populate placeholders
-    for (let i = 0; i < movies.length; i++) {
-      const movie = movies[i];
-      console.log(movie);
-      const card = $(".col-md-3 .card").eq(i);
-      console.log(card);
-      // Set the movie title
-      card.find(".card-text").text(movie.Title);
+    for (let i = 0; i < movies.results.length; i++) {
+      const movie = movies.results[i];
 
-      // Set the movie poster
-      const img = card.find(".card-img-top");
-      img.attr("src", movie.Poster);
-      img.attr("alt", movie.Title);
+      const movieElement = document.createElement("div");
+      movieElement.classList.add("col-md-3");
+      movieElement.innerHTML = `
+          <div class="card">
+              <img src="${
+                movie.poster_path
+                  ? IMG_URL + movie.poster_path
+                  : "http://via.placeholder.com/1080x1580"
+              }" class="card-img-top" alt="${movie.title}" />
+              <div class="card-body">
+                  <h5 class="card-text">${movie.title}</h5>
+              </div>
+          </div>
+      `;
+
+      // Append the movie element to the movie container
+      movieContainer.appendChild(movieElement);
     }
   }
 
@@ -302,16 +333,16 @@ $(document).ready(function () {
         .attr("href", `movie.html?imdbID=${movie.imdbID}`)
         .addClass("btn btn-link")
         .text(movie.Title)
-        .on('click', function () {
+        .on("click", function () {
           // Handling the search result to be redirected
-          window.location.href = $(this).attr('href');
+          window.location.href = $(this).attr("href");
         });
 
-        modalBody.append(movieLink);
+      modalBody.append(movieLink);
     });
 
     // Showing the modal
-    searchResultsModal.modal('show');
+    searchResultsModal.modal("show");
   }
 
   // Function which handles movie search
@@ -353,7 +384,7 @@ $(document).ready(function () {
       const title = $("<h2>").text(movie.Title);
       // Adding other movie details as needed
       movieLink.append(title);
-      $("#searchResultsModal").append(movieLink);
+      $("#search-form").append(movieLink);
     });
   }
 
@@ -369,8 +400,7 @@ $(document).ready(function () {
   });
 
   // Initial filtering when the page loads
-  filterMovies();
-
+  filterMovies("All", "All");
   fetchMovieData();
 
   // TMDB API FETCH REQUEST
@@ -378,7 +408,8 @@ $(document).ready(function () {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: "Bearer d0bb7d4fbb291088cb72ab1b7147c5e5",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmFkMzA3M2Y2NWFiZWJmMDIzYzgyZDlhZjJmODVmYSIsInN1YiI6IjY1MTZhNTE5OTNiZDY5MDBlMTJkMGI3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CcdRQfD-O4bZLh37OG0nLNQPg9Hnx_deAt3Oj1U9-LI",
     },
   };
 
