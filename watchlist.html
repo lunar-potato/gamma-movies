@@ -39,59 +39,99 @@
 
   <body class="container dark">
     <!--Navbar-->
-  <header>
-    <div class="menu">
-      <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
-        <!--Or Use style="background-color:red etc."-->
-        <div class="container-fluid">
-          <a href="./index.html" class="navbar-brand mb-0 h1">
-            <img class="d-inline-block align-top" src="./images/logo.png" width="30" height="30" />
-            Gamma Movies
-          </a>
-          <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <header>
+      <div class="menu">
+        <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
+          <!--Or Use style="background-color:red etc."-->
+          <div class="container-fluid">
+            <a href="./index.html" class="navbar-brand mb-0 h1">
+              <img
+                class="d-inline-block align-top"
+                src="./images/logo.png"
+                width="30"
+                height="30"
+              />
+              Gamma Movies
+            </a>
+            <button
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              class="navbar-toggler"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-          <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
-            <ul class="navbar-nav text-center">
-
-              <li class="nav-item active">
-                <a href="./filter.html" class="nav-link">Movies</a>
-              </li>
-              <li class="nav-item active">
-                <a href="./filter.html" class="nav-link">Year</a>
-              </li>
-              <li class="nav-item active">
-                <a href="./index.html" class="nav-link">Popular</a>
-              </li>
-              <li class="nav-item active">
-                <a href="./watchlist.html" class="nav-link">Watchlist</a>
-              </li>
-            </ul>
-            <form class="d-flex" id="search-form">
-              <input type="text" class="form-control me-2" placeholder="Type your search" id="search-input"/>
-              <button type="submit" class="btn btn-primary">Search</button>
-            </form>
+            <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+              <ul class="navbar-nav text-center">
+                <li class="nav-item active">
+                  <a href="./index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a href="./filter.html" class="nav-link">Filters</a>
+                </li>
+                <li class="nav-item active">
+                  <a href="./watchlist.html" class="nav-link">Watchlist</a>
+                </li>
+              </ul>
+              <form class="d-flex" id="search-form">
+                <input
+                  type="text"
+                  class="form-control me-2"
+                  placeholder="Search a movie.."
+                  id="search-input"
+                />
+                <button type="submit" class="btn btn-primary">Search</button>
+              </form>
+            </div>
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" id="theme-switcher" />
+                <span class="slider round"></span>
+              </label>
+            </div>
           </div>
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" id="theme-switcher" />
-              <span class="slider round"></span>
-            </label>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Modal for displaying search results -->
+    <div
+      class="modal fade"
+      id="searchResultsModal"
+      tabindex="-1"
+      aria-labelledby="searchResultsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="searchResultsModalLabel">
+              Search Results
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Display search results here -->
+            <div id="search-results"></div>
           </div>
         </div>
-      </nav>
+      </div>
     </div>
-  </header>
 
     <section class="container-fluid">
       <h3 class="col-md-6 my-2">Watchlist</h3>
       <div class="row d-flex" id="watchlist-container">
-        <div class="col ms-lg-1 mt-2 ">
-          <div class="movie-card">
-            
-          </div>
+        <div class="col ms-lg-1 mt-2">
+          <div class="movie-card"></div>
         </div>
       </div>
     </section>

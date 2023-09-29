@@ -90,7 +90,9 @@ $(document).ready(function () {
         `movie.html?imdbID=${movie.imdbID}`
       );
 
-      const movieCard = $('<div class="col ms-lg-1 mt-2 movie-card"></div>');
+      const movieCard = $(
+        '<div class="col ms-lg-1 mt-2 my-4 movie-card"></div>'
+      );
 
       const posterImg = $('<img class="card-img-top">')
         .attr("src", movie.Poster)
@@ -319,6 +321,30 @@ $(document).ready(function () {
     }
   }
 
+  // Function to display the search results in the modal
+  function displaySearchResultsModal(results) {
+    const searchResultsModal = $("#searchResultsModal");
+    const modalBody = searchResultsModal.find(".modal-body");
+    modalBody.empty();
+
+    // Looping through results and creating links for each movie title
+    results.forEach(function (movie) {
+      const movieLink = $("<a>")
+        .attr("href", `movie.html?imdbID=${movie.imdbID}`)
+        .addClass("btn btn-link")
+        .text(movie.Title)
+        .on("click", function () {
+          // Handling the search result to be redirected
+          window.location.href = $(this).attr("href");
+        });
+
+      modalBody.append(movieLink);
+    });
+
+    // Showing the modal
+    searchResultsModal.modal("show");
+  }
+
   // Function which handles movie search
   function searchMovies(query) {
     const apiKey = "c6ff91ff";
@@ -333,7 +359,7 @@ $(document).ready(function () {
       success: function (data) {
         // Checking if movies are found
         if (data.Response === "True") {
-          displaySearchResults(data.Search);
+          displaySearchResultsModal(data.Search);
         } else {
           // Displaying message indicating that no movies were found
           console.log("No movies found.");
